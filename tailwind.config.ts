@@ -15,7 +15,8 @@ const config: Config = {
 		},
 		extend: {
 			boxShadow: {
-				button: '0px 0px 0px 1px var(--ring)'
+				button: '0px 0px 0px 1px var(--ring)',
+				input: '0px 0px 0px 1px var(--ring)'
 			},
 			colors: {
 				border: 'var(--border)',
