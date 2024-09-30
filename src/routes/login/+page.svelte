@@ -8,12 +8,10 @@
 </script>
 
 <div class="min-w-screen min-h-screen flex justify-center items-center">
-	<div class="hidden desktop:flex flex-col items-center justify-center">
-		<div class="w-desktop">
-			<img src={image} srcset="{image} 1x, {image2x} 2x, {image3x} 3x" alt="Background" />
-		</div>
+	<div class="hidden desktop:flex flex-col items-center justify-center w-[50vw]">
+		<img src={image} srcset="{image} 720w, {image2x} 1440w, {image3x} 2160w" sizes="(min-width: 1440px) 50vw," alt="Background" />
 	</div>
-	<div class="desktop:w-desktop desktop:max-w-desktop flex flex-grow flex-col items-center justify-center">
+	<div class="desktop:w-[50vw] flex flex-grow flex-col items-center justify-center">
 		<div class="w-mobile p-6">
 			<h1 class="text-center text-2xl font-semibold font-inter text-card-foreground mb-2">Login</h1>
 			<p class="text-center mb-6 text-muted-foreground">Enter your email below<br/>to login to your account</p>
