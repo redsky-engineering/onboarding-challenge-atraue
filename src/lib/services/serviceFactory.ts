@@ -1,4 +1,4 @@
-import UserService from './UserService';
+import UserService from './user/UserService';
 
 export type ServiceTypes = {
 	UserService: UserService;
