@@ -4,13 +4,13 @@
 	import image3x from '$lib/assets/images/image@3x.webp';
 	import { Button } from '$lib/components/ui/button';
 	import { Input } from '$lib/components/ui/input';
-	import { Label } from '$lib/components/ui/label';
 	import { defaults, superForm } from 'sveltekit-superforms';
 	import { loginSchema } from '../../schema/login';
 	import { zod } from 'sveltekit-superforms/adapters';
 	import serviceFactory from '$lib/services/serviceFactory';
+	import { FormControl, FormField, FormFieldErrors, FormLabel } from '$lib/components/ui/form';
 
-	const { form, errors, enhance } = superForm(defaults(zod(loginSchema)), {
+	const form = superForm(defaults(zod(loginSchema)), {
 		SPA: true,
 		validators: zod(loginSchema),
 		onUpdate: async ({ form }) => {
@@ -21,6 +21,7 @@
 			}
 		}
 	});
+	const { form: formData, errors, enhance } = form;
 </script>
 
 <div class="min-w-screen flex min-h-screen items-center justify-center">
@@ -39,31 +40,26 @@
 				Enter your email below<br />to login to your account
 			</p>
 			<form class="flex flex-col justify-center" method="POST" use:enhance>
-				<Label class="mb-1.5" for="email">Email</Label>
-				<Input
-					class={$errors.email ? 'mb-1.5' : 'mb-4'}
-					type="email"
-					id="email"
-					name="email"
-					placeholder="name@example.com"
-					bind:value={$form.email}
-					aria-invalid={$errors.email ? 'true' : undefined}
-				/>
-				{#if $errors.email}<span class="font-inter text-xs font-normal text-destructive mb-4"
-						>{$errors.email}</span
-					>{/if}
-				<Label class="mb-1.5" for="password">Password</Label>
-				<Input
-					class={$errors.password ? 'mb-1.5' : 'mb-6'}
-					type="password"
-					id="password"
-					name="password"
-					bind:value={$form.password}
-					aria-invalid={$errors.password ? 'true' : undefined}
-				/>
-				{#if $errors.password}<span class="font-inter text-xs font-normal text-destructive mb-6"
-						>{$errors.password}</span
-					>{/if}
+				<FormField {form} name="email">
+					<FormControl let:attrs>
+						<FormLabel class="block mb-1.5">Email</FormLabel>
+						<Input
+							{...attrs}
+							class={$errors.email ? "mb-1.5" : "mb-4"}
+							placeholder="name@example.com"
+							type="email"
+							bind:value={$formData.email}
+						/>
+					</FormControl>
+					<FormFieldErrors class={$errors.email ? "mb-4" : ""} />
+				</FormField>
+				<FormField {form} name="password">
+					<FormControl let:attrs>
+						<FormLabel class="block mb-1.5">Password</FormLabel>
+						<Input {...attrs} class={$errors.password ? "mb-1.5" : "mb-6"} type="password" bind:value={$formData.password} />
+					</FormControl>
+					<FormFieldErrors class={$errors.password ? "mb-6" : ""} />
+				</FormField>
 				<Button class="w-full" type="submit">Login</Button>
 			</form>
 		</div>
