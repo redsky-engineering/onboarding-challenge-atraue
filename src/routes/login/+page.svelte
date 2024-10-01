@@ -12,10 +12,13 @@
 
 	const { form, errors, enhance } = superForm(defaults(zod(loginSchema)), {
 		SPA: true,
+		validators: zod(loginSchema),
 		onUpdate: async ({ form }) => {
-			const { email, password } = form.data;
-			const userService = serviceFactory.get('UserService');
-			await userService.loginUser(email, password);
+			if (form.valid) {
+				const { email, password } = form.data;
+				const userService = serviceFactory.get('UserService');
+				await userService.loginUser(email, password);
+			}
 		}
 	});
 </script>
@@ -38,7 +41,7 @@
 			<form class="flex flex-col justify-center" method="POST" use:enhance>
 				<Label class="mb-1.5" for="email">Email</Label>
 				<Input
-					class="mb-4"
+					class={$errors.email ? 'mb-1.5' : 'mb-4'}
 					type="email"
 					id="email"
 					name="email"
@@ -46,19 +49,19 @@
 					bind:value={$form.email}
 					aria-invalid={$errors.email ? 'true' : undefined}
 				/>
-				{#if $errors.email}<span class="font-inter text-xs font-normal text-destructive"
+				{#if $errors.email}<span class="font-inter text-xs font-normal text-destructive mb-4"
 						>{$errors.email}</span
 					>{/if}
 				<Label class="mb-1.5" for="password">Password</Label>
 				<Input
-					class="mb-6"
+					class={$errors.password ? 'mb-1.5' : 'mb-6'}
 					type="password"
 					id="password"
 					name="password"
 					bind:value={$form.password}
 					aria-invalid={$errors.password ? 'true' : undefined}
 				/>
-				{#if $errors.password}<span class="font-inter text-xs font-normal text-destructive"
+				{#if $errors.password}<span class="font-inter text-xs font-normal text-destructive mb-6"
 						>{$errors.password}</span
 					>{/if}
 				<Button class="w-full" type="submit">Login</Button>
