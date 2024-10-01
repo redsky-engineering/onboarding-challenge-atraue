@@ -27,7 +27,7 @@
 	<div class="desktop:w-[50vw] flex flex-grow flex-col items-center justify-center">
 		<div class="w-mobile p-6">
 			<h1 class="text-center text-2xl font-semibold font-inter text-card-foreground mb-2">Login</h1>
-			<p class="text-center mb-6 text-muted-foreground">Enter your email below<br/>to login to your account</p>
+			<p class="text-center text-sm font-normal font-inter text-muted-foreground mb-6">Enter your email below<br/>to login to your account</p>
 			<form class="flex flex-col justify-center" method="POST" use:enhance>
                 <Label class="mb-1.5" for="email">Email</Label>
 				<Input class="mb-4" type="email" id="email" name="email" placeholder="name@example.com" bind:value={$form.email} />
