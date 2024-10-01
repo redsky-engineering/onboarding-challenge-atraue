@@ -37,7 +37,7 @@
 		<div class="w-mobile p-6 desktop:p-4">
 			<h1 class="mb-2 text-center font-inter text-2xl font-semibold text-card-foreground">Login</h1>
 			<p class="mb-6 text-center font-inter text-sm font-normal text-muted-foreground">
-				Enter your email below<br />to login to your account
+				Enter your email below<br />to login to your account.
 			</p>
 			<form class="flex flex-col justify-center" method="POST" use:enhance>
 				<FormField {form} name="email">
