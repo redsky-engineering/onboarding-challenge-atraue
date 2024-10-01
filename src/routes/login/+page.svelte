@@ -10,29 +10,57 @@
 	import { zod } from 'sveltekit-superforms/adapters';
 	import serviceFactory from '$lib/services/serviceFactory';
 
-	const { form, errors, enhance} = superForm(defaults(zod(loginSchema)), {
+	const { form, errors, enhance } = superForm(defaults(zod(loginSchema)), {
 		SPA: true,
-		onUpdate: async ({form}) => {
+		onUpdate: async ({ form }) => {
 			const { email, password } = form.data;
-			const userService = serviceFactory.get("UserService");
+			const userService = serviceFactory.get('UserService');
 			await userService.loginUser(email, password);
 		}
 	});
 </script>
 
-<div class="min-w-screen min-h-screen flex justify-center items-center">
-	<div class="hidden desktop:flex flex-col items-center justify-center w-[50vw]">
-		<img src={image} srcset="{image} 720w, {image2x} 1440w, {image3x} 2160w" sizes="(min-width: 1440px) 50vw," alt="Background" />
+<div class="min-w-screen flex min-h-screen items-center justify-center">
+	<div class="hidden w-[50vw] flex-col items-center justify-center desktop:flex">
+		<img
+			src={image}
+			srcset="{image} 720w, {image2x} 1440w, {image3x} 2160w"
+			sizes="(min-width: 1440px) 50vw,"
+			alt="Background"
+		/>
 	</div>
-	<div class="desktop:w-[50vw] flex flex-grow flex-col items-center justify-center">
+	<div class="flex flex-grow flex-col items-center justify-center desktop:w-[50vw]">
 		<div class="w-mobile p-6 desktop:p-4">
-			<h1 class="text-center text-2xl font-semibold font-inter text-card-foreground mb-2">Login</h1>
-			<p class="text-center text-sm font-normal font-inter text-muted-foreground mb-6">Enter your email below<br/>to login to your account</p>
+			<h1 class="mb-2 text-center font-inter text-2xl font-semibold text-card-foreground">Login</h1>
+			<p class="mb-6 text-center font-inter text-sm font-normal text-muted-foreground">
+				Enter your email below<br />to login to your account
+			</p>
 			<form class="flex flex-col justify-center" method="POST" use:enhance>
-                <Label class="mb-1.5" for="email">Email</Label>
-				<Input class="mb-4" type="email" id="email" name="email" placeholder="name@example.com" bind:value={$form.email} />
-                <Label class="mb-1.5" for="password">Password</Label>
-                <Input class="mb-6" type="password" id="password" name="password" bind:value={$form.password} />
+				<Label class="mb-1.5" for="email">Email</Label>
+				<Input
+					class="mb-4"
+					type="email"
+					id="email"
+					name="email"
+					placeholder="name@example.com"
+					bind:value={$form.email}
+					aria-invalid={$errors.email ? 'true' : undefined}
+				/>
+				{#if $errors.email}<span class="font-inter text-xs font-normal text-destructive"
+						>{$errors.email}</span
+					>{/if}
+				<Label class="mb-1.5" for="password">Password</Label>
+				<Input
+					class="mb-6"
+					type="password"
+					id="password"
+					name="password"
+					bind:value={$form.password}
+					aria-invalid={$errors.password ? 'true' : undefined}
+				/>
+				{#if $errors.password}<span class="font-inter text-xs font-normal text-destructive"
+						>{$errors.password}</span
+					>{/if}
 				<Button class="w-full" type="submit">Login</Button>
 			</form>
 		</div>

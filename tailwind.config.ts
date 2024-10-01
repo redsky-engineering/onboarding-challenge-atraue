@@ -74,7 +74,12 @@ const config: Config = {
 				desktop: '45rem'
 			}
 		}
-	}
+	},
+	plugins: [
+		function ({ addVariant }) {
+			addVariant('aria-invalid', '&[aria-invalid="true"]');
+		}
+	]
 };
 
 export default config;

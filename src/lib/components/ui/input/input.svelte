@@ -17,7 +17,7 @@
 </script>
 <input
 	class={cn(
-		"bg-background border rounded-lg px-3 py-1.5 placeholder:text-muted-foreground w-full text-base font-normal font-inter text-foreground disabled:cursor-not-allowed disabled:opacity-50 active:shadow-input focus:shadow-input focus:outline-none",
+		"bg-background border rounded-lg px-3 py-1.5 placeholder:text-muted-foreground w-full text-base font-normal font-inter text-foreground disabled:cursor-not-allowed disabled:opacity-50 active:shadow-input focus:shadow-input focus:outline-none aria-invalid:border-destructive",
 		className
 	)}
 	bind:value
