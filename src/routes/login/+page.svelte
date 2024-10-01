@@ -25,7 +25,7 @@
 		<img src={image} srcset="{image} 720w, {image2x} 1440w, {image3x} 2160w" sizes="(min-width: 1440px) 50vw," alt="Background" />
 	</div>
 	<div class="desktop:w-[50vw] flex flex-grow flex-col items-center justify-center">
-		<div class="w-mobile p-6">
+		<div class="w-mobile p-6 desktop:p-4">
 			<h1 class="text-center text-2xl font-semibold font-inter text-card-foreground mb-2">Login</h1>
 			<p class="text-center text-sm font-normal font-inter text-muted-foreground mb-6">Enter your email below<br/>to login to your account</p>
 			<form class="flex flex-col justify-center" method="POST" use:enhance>
