@@ -15,8 +15,8 @@
     $: currentUrl = $page.url.href;
 </script>
 
-<ul class="flex flex-col gap-x-2 w-full">
-	{#each links as { name, href, icon }, i}
+<ul class="flex flex-col gap-y-2 w-full">
+	{#each links as { name, href, icon }}
 		<NavItem {name} {href} {icon} isActive={currentUrl.endsWith(href)} />
 	{/each}
 </ul>
