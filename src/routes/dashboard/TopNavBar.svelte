@@ -5,7 +5,7 @@
 	import * as Avatar from '$lib/components/ui/avatar';
 </script>
 
-<div class="flex border-b-1 border-border">
+<div class="flex bg-muted-opacity border-b-1 border-border">
 	<div class="w-[50vw] p-4 desktop:w-full">
 		<h1 class="font-inter text-xl font-semibold text-foreground desktop:text-3xl">Dashboard</h1>
 	</div>
