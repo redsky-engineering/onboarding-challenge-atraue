@@ -9,6 +9,7 @@
 	import { zod } from 'sveltekit-superforms/adapters';
 	import serviceFactory from '$lib/services/serviceFactory';
 	import { FormControl, FormField, FormFieldErrors, FormLabel } from '$lib/components/ui/form';
+	import { cn } from '$lib/utils';
 
 	const form = superForm(defaults(zod(loginSchema)), {
 		SPA: true,
@@ -33,7 +34,7 @@
 			alt="Background"
 		/>
 	</div>
-	<div class="flex-grow grid place-items-center desktop:w-[50vw]">
+	<div class="grid flex-grow place-items-center desktop:w-[50vw]">
 		<div class="w-mobile p-6 desktop:p-4">
 			<h1 class="mb-2 text-center font-inter text-2xl font-semibold text-card-foreground">Login</h1>
 			<p class="mb-6 text-center font-inter text-sm font-normal text-muted-foreground">
@@ -42,23 +43,28 @@
 			<form class="flex flex-col justify-center" method="POST" use:enhance>
 				<FormField {form} name="email">
 					<FormControl let:attrs>
-						<FormLabel class="block mb-1.5">Email</FormLabel>
+						<FormLabel class="mb-1.5 block">Email</FormLabel>
 						<Input
 							{...attrs}
-							class={$errors.email ? "mb-1.5" : "mb-4"}
+							class={cn('mb-4', { 'mb-1.5': $errors.email })}
 							placeholder="name@example.com"
 							type="email"
 							bind:value={$formData.email}
 						/>
 					</FormControl>
-					<FormFieldErrors class={$errors.email ? "mb-4" : ""} />
+					<FormFieldErrors class={cn({ 'mb-4': $errors.email })} />
 				</FormField>
 				<FormField {form} name="password">
 					<FormControl let:attrs>
-						<FormLabel class="block mb-1.5">Password</FormLabel>
-						<Input {...attrs} class={$errors.password ? "mb-1.5" : "mb-6"} type="password" bind:value={$formData.password} />
+						<FormLabel class="mb-1.5 block">Password</FormLabel>
+						<Input
+							{...attrs}
+							class={cn('mb-6', { 'mb-1.5': $errors.password })}
+							type="password"
+							bind:value={$formData.password}
+						/>
 					</FormControl>
-					<FormFieldErrors class={$errors.password ? "mb-6" : ""} />
+					<FormFieldErrors class={cn({ 'mb-6': $errors.password })} />
 				</FormField>
 				<Button class="w-full" type="submit">Login</Button>
 			</form>
