@@ -7,7 +7,6 @@
 
 	let className: $$Props["class"] = undefined;
 	export { className as class };
-	//"text-base font-medium text-foreground peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
 </script>
 
 <LabelPrimitive.Root
