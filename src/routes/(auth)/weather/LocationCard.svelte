@@ -21,22 +21,22 @@
 	<Card.Header>
 		<Card.Title tag="h2">Location</Card.Title>
 		<Card.Description
-			>Enter the longitude and latitude of the location you wish to see the weather results for.
+			>Enter the latitude and longitude of the location you wish to see weather results for.
 		</Card.Description>
 	</Card.Header>
 	<Card.Content>
 		<form class="flex flex-col gap-y-6" method="POST" use:enhance>
-			<FormField {form} name="longitude">
-				<FormControl>
-					<FormLabel>Longitude</FormLabel>
-					<Input type="text" bind:value={$formData.longitude} />
-				</FormControl>
-				<FormFieldErrors />
-			</FormField>
 			<FormField {form} name="latitude">
 				<FormControl>
 					<FormLabel>Latitude</FormLabel>
 					<Input type="text" bind:value={$formData.latitude} />
+				</FormControl>
+				<FormFieldErrors />
+			</FormField>
+            			<FormField {form} name="longitude">
+				<FormControl>
+					<FormLabel>Longitude</FormLabel>
+					<Input type="text" bind:value={$formData.longitude} />
 				</FormControl>
 				<FormFieldErrors />
 			</FormField>
