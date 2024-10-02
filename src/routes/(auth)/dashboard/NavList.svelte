@@ -1,5 +1,6 @@
 <script lang="ts">
 	import NavItem from "./NavItem.svelte";
+    import { page } from '$app/stores';
 
 	interface Link {
 		name: string;
@@ -9,11 +10,13 @@
 
 	export let links: Link[];
 
-    let currentPage = "";
+    let currentUrl;
+
+    $: currentUrl = $page.url.href;
 </script>
 
 <ul class="flex flex-col gap-x-2 w-full">
 	{#each links as { name, href, icon }, i}
-		<NavItem {name} {href} {icon} isActive={href === currentPage} />
+		<NavItem {name} {href} {icon} isActive={currentUrl.endsWith(href)} />
 	{/each}
 </ul>
