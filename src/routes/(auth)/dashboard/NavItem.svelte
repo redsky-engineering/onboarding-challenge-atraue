@@ -6,7 +6,7 @@
 
 	const styledIcon = icon?.replace(
 		'<svg',
-		`<svg class="w-10 h-10 ${isActive ? 'fill-accent-foreground' : 'fill-muted-foreground'}"`
+		`<svg class="w-4 h-4 ${isActive ? 'fill-accent-foreground' : 'fill-muted-foreground'}"`
 	);
 </script>
 
