@@ -1,1 +1,5 @@
-<h1>Weather page</h1>
+<script>
+	import WeatherContent from "./WeatherContent.svelte";
+
+</script>
+<WeatherContent />
