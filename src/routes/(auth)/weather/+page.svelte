@@ -1,5 +1,10 @@
 <script>
-	import WeatherContent from "./WeatherContent.svelte";
+	import PageContent from "../PageContent.svelte";
+	import LocationCard from "./LocationCard.svelte";
+	import ResultsCard from "./ResultsCard.svelte";
 
 </script>
-<WeatherContent />
+<PageContent>
+	<LocationCard />
+	<ResultsCard/>
+</PageContent>
