@@ -4,7 +4,7 @@
 	import ResultsCard from "./ResultsCard.svelte";
 
 </script>
-<PageContent>
+<PageContent class="justify-start">
 	<LocationCard />
 	<ResultsCard/>
 </PageContent>
