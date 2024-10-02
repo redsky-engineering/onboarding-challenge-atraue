@@ -5,7 +5,7 @@
 	import * as Avatar from '$lib/components/ui/avatar';
 </script>
 
-<div class="flex bg-muted-opacity border-b-1 border-border">
+<div class="flex bg-muted-opacity shadow-navbar">
 	<div class="w-[50vw] p-4 desktop:w-full desktop:px-4 desktop:py-2.5">
 		<h1 class="font-inter text-xl font-semibold text-foreground desktop:text-3xl desktop:tracking-wide">Dashboard</h1>
 	</div>
