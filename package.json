@@ -9,7 +9,8 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"generateCode": "node scripts/schemaFetchGenerate.mjs"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
@@ -33,6 +34,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@redskytech/core-utils": "^1.1.1",
 		"bits-ui": "^0.21.15",
 		"clsx": "^2.1.1",
 		"formsnap": "^1.0.1",
