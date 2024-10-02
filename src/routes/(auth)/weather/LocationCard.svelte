@@ -28,21 +28,21 @@
 		<form class="flex flex-col gap-y-6" method="POST" use:enhance>
 			<FormField {form} name="latitude">
 				<FormControl>
-					<FormLabel>Latitude</FormLabel>
+					<FormLabel class="block mb-1.5">Latitude</FormLabel>
 					<Input type="text" bind:value={$formData.latitude} />
 				</FormControl>
 				<FormFieldErrors />
 			</FormField>
             			<FormField {form} name="longitude">
 				<FormControl>
-					<FormLabel>Longitude</FormLabel>
+					<FormLabel class="block mb-1.5">Longitude</FormLabel>
 					<Input type="text" bind:value={$formData.longitude} />
 				</FormControl>
 				<FormFieldErrors />
 			</FormField>
 			<FormField {form} name="appIdToken">
 				<FormControl>
-					<FormLabel>App ID Token</FormLabel>
+					<FormLabel class="block mb-1.5">App ID Token</FormLabel>
 					<Input type="text" bind:value={$formData.appIdToken} />
 				</FormControl>
 				<FormFieldErrors />
