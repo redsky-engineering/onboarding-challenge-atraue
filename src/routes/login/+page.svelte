@@ -33,7 +33,7 @@
 			alt="Background"
 		/>
 	</div>
-	<div class="flex flex-grow flex-col items-center justify-center desktop:w-[50vw]">
+	<div class="flex-grow grid place-items-center desktop:w-[50vw]">
 		<div class="w-mobile p-6 desktop:p-4">
 			<h1 class="mb-2 text-center font-inter text-2xl font-semibold text-card-foreground">Login</h1>
 			<p class="mb-6 text-center font-inter text-sm font-normal text-muted-foreground">
