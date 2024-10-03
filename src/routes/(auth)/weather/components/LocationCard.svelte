@@ -14,10 +14,11 @@
 	const form = superForm(defaults(zod(locationSchema)), {
 		SPA: true,
 		validators: zod(locationSchema),
-		onUpdate: async ({ form }) => {
-			if (form.valid){
+		onUpdate: async (form) => {
+			const { form: resultForm } = form;
+			if (resultForm.valid) {
 				const weatherService = serviceFactory.get('WeatherService');
-				const { latitude, longitude, appIdToken } = form.data;
+				const { latitude, longitude, appIdToken } = resultForm.data;
 				const latDecimal = convertLatitudeToDecimal(latitude);
 				const longDecimal = convertLongitudeToDecimal(longitude);
 				const res = await weatherService.getWeatherForLocation(latDecimal, longDecimal, appIdToken);

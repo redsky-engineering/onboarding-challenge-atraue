@@ -6,17 +6,12 @@ export default class WeatherService extends Service {
 		latDecimal: number,
 		longDecimal: number,
 		appIdToken: string
-	): Promise<CustomTypes.WeatherResponse | null> {
-		try {
-			const res = await ApiRequestV1.getWeather({
-				latitude: latDecimal,
-				longitude: longDecimal,
-				token: appIdToken
-			});
-			return res;
-		} catch (error) {
-			console.error(error);
-			return null;
-		}
+	): Promise<CustomTypes.WeatherResponse> {
+		const res = await ApiRequestV1.getWeather({
+			latitude: latDecimal,
+			longitude: longDecimal,
+			token: appIdToken
+		});
+		return res;
 	}
 }
