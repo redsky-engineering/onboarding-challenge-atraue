@@ -13,11 +13,10 @@
 	}
 
 	let { links }: NavItemProps = $props();
-	let currentUrl = $derived($page.url.href);
 </script>
 
 <ul class="flex w-full flex-col gap-y-2">
 	{#each links as { name, href, icon }}
-		<NavItem {name} {href} {icon} isActive={currentUrl.endsWith(href)} />
+		<NavItem {name} {href} {icon} isActive={($page.url.href).endsWith(href)} />
 	{/each}
 </ul>
