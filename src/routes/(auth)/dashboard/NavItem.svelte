@@ -1,8 +1,12 @@
 <script lang="ts">
-	export let name: string;
-	export let href: string;
-	export let icon: string | undefined;
-	export let isActive: boolean;
+	interface NavItemProps {
+		name: string;
+		href: string;
+		icon?: string;
+		isActive: boolean;
+	}
+
+	let { name, href, icon, isActive }: NavItemProps = $props();
 
 	const styledIcon = icon?.replace(
 		'<svg',
@@ -15,6 +19,10 @@
 		{#if icon}
 			{@html styledIcon}
 		{/if}
-		<span class="font-inter text-lg font-semibold {isActive ? "text-foreground" : "text-muted-foreground"}">{name}</span>
+		<span
+			class="font-inter text-lg font-semibold {isActive
+				? 'text-foreground'
+				: 'text-muted-foreground'}">{name}</span
+		>
 	</a>
 </li>
