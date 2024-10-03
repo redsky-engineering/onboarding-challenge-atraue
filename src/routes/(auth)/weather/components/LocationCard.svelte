@@ -9,6 +9,7 @@
 	import serviceFactory from '$lib/services/serviceFactory';
 	import { convertLatitudeToDecimal, convertLongitudeToDecimal } from '../location-utils';
 	import { locationWeatherStore } from '../../../../stores/locationWeather';
+	import { cn } from '$lib/utils';
 
 	const form = superForm(defaults(zod(locationSchema)), {
 		SPA: true,
@@ -41,23 +42,23 @@
 			<FormField {form} name="latitude">
 				<FormControl>
 					<FormLabel class="block mb-1.5">Latitude</FormLabel>
-					<Input class="mb-6" type="text" bind:value={$formData.latitude} />
+					<Input class={cn('mb-6', { 'mb-1.5': $errors.latitude })} type="text" bind:value={$formData.latitude} />
 				</FormControl>
-				<FormFieldErrors />
+				<FormFieldErrors class={cn({ 'mb-6': $errors.latitude })}  />
 			</FormField>
 			<FormField {form} name="longitude">
 				<FormControl>
 					<FormLabel class="block mb-1.5">Longitude</FormLabel>
-					<Input class="mb-6" type="text" bind:value={$formData.longitude} />
+					<Input class={cn('mb-6', { 'mb-1.5': $errors.longitude })} type="text" bind:value={$formData.longitude} />
 				</FormControl>
-				<FormFieldErrors />
+				<FormFieldErrors class={cn({ 'mb-6': $errors.longitude })}  />
 			</FormField>
 			<FormField {form} name="appIdToken">
 				<FormControl>
 					<FormLabel class="block mb-1.5">App ID Token</FormLabel>
-					<Input class="mb-6" type="text" bind:value={$formData.appIdToken} />
+					<Input class={cn('mb-6', { 'mb-1.5': $errors.appIdToken })} type="text" bind:value={$formData.appIdToken} />
 				</FormControl>
-				<FormFieldErrors />
+				<FormFieldErrors class={cn({ 'mb-6': $errors.appIdToken })}  />
 			</FormField>
 			<Button class="w-full" type="submit">Submit</Button>
 		</form>
