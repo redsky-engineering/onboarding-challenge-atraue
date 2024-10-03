@@ -13,7 +13,7 @@
 </script>
 
 <div class={className}>
-	<h3 class="mb-4 font-inter text-lg font-medium text-card-foreground">Tomorrow's Forecast</h3>
+	<h3 class="mb-4 font-inter text-lg font-medium text-card-foreground">Today's Forecast</h3>
 	<div class="grid grid-cols-[10rem_10rem_10rem]">
 		<ForecastItem title="Current Temperature" value={currentTemp} unit="° F" />
 		<div></div>

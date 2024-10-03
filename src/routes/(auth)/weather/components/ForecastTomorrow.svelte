@@ -9,7 +9,7 @@
 </script>
 
 <div class={className}>
-	<h3 class="text-lg font-inter font-medium mb-4 text-card-foreground">Today's Forecast</h3>
+	<h3 class="text-lg font-inter font-medium mb-4 text-card-foreground">Tomorrow's Forecast</h3>
 	<div class="grid grid-cols-[10rem_10rem]">
 		<ForecastItem title="High" value={highTemp} unit="° F" />
 		<ForecastItem title="Low" value={lowTemp} unit="° F" />
