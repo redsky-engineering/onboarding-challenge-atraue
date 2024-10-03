@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { locationWeatherStore } from '../../../stores/locationWeather';
 	import PageContent from '../PageContent.svelte';
-	import LocationCard from './LocationCard.svelte';
-	import ResultsCard from './ResultsCard.svelte';
+	import LocationCard from './components/LocationCard.svelte';
+	import ResultsCard from './components/ResultsCard.svelte';
 
 	let currentTemp: number | null = null;
 	let highTemp: number | null = null;

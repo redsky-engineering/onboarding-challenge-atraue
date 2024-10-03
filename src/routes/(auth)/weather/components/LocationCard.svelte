@@ -4,11 +4,11 @@
 	import { FormControl, FormField, FormFieldErrors, FormLabel } from '$lib/components/ui/form';
 	import Input from '$lib/components/ui/input/input.svelte';
 	import { defaults, superForm } from 'sveltekit-superforms';
-	import { locationSchema } from '../../../schema/location';
+	import { locationSchema } from '../../../../schema/location';
 	import { zod } from 'sveltekit-superforms/adapters';
 	import serviceFactory from '$lib/services/serviceFactory';
-	import { convertLatitudeToDecimal, convertLongitudeToDecimal } from './location-utils';
-	import { locationWeatherStore } from '../../../stores/locationWeather';
+	import { convertLatitudeToDecimal, convertLongitudeToDecimal } from '../location-utils';
+	import { locationWeatherStore } from '../../../../stores/locationWeather';
 
 	const form = superForm(defaults(zod(locationSchema)), {
 		SPA: true,
