@@ -1,10 +1,9 @@
 <script lang="ts">
 	import avatarIcon from '$lib/assets/images/avatar.svg';
-	import menuIcon from '$lib/assets/images/li-menu.svg';
-	import { Button } from '$lib/components/ui/button';
 	import * as Avatar from '$lib/components/ui/avatar';
 	 import { page } from '$app/stores';
 	import { PAGE_LINKS } from '../constants';
+	import MobileNavSheet from './MobileNavSheet.svelte';
 
 	let pageTitle: string;
 
@@ -24,8 +23,6 @@
 			<Avatar.Fallback>JD</Avatar.Fallback>
 		</Avatar.Root>
 		<div class="font-inter text-base font-medium text-foreground">John Doe</div>
-		<Button class="desktop:hidden" variant="outline" size="sm"
-			><img class="h-4 w-4" src={menuIcon} alt="Menu icon" /></Button
-		>
+		<MobileNavSheet/>
 	</div>
 </div>

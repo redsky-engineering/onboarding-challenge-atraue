@@ -49,6 +49,7 @@ const config: Config = {
 				},
 				popover: {
 					DEFAULT: 'var(--popover)',
+					opacity: 'var(--popover-foreground-opacity-20)',
 					foreground: 'var(--popover-foreground)'
 				},
 				card: {

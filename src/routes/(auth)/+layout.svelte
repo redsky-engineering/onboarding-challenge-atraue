@@ -5,7 +5,7 @@
 </script>
 
 <div class="min-w-screen flex min-h-screen">
-	<SideNavBar />
+	<SideNavBar class="hidden desktop:flex" />
 	<div class="flex w-full flex-col">
 		<TopNavBar />
 		<slot />
