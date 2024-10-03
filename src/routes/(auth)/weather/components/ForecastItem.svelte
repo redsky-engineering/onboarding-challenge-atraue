@@ -17,7 +17,7 @@
     $: formattedValue = formatValue(value, unit);
 </script>
 
-<div class="flex flex-col gap-y-2">
-    <h4 class="text-sm font-inter font-normal text-muted-foreground">{title}</h4>
+<div class="flex flex-col">
+    <h4 class="text-sm font-inter font-normal text-muted-foreground mb-2">{title}</h4>
     <p class="text-base font-inter font-medium">{formattedValue}</p>
 </div>
