@@ -74,7 +74,12 @@ const config: Config = {
 				1: '1px'
 			}
 		}
-	}
+	},
+	plugins: [
+		function ({ addVariant }) {
+			addVariant('aria-invalid', '&[aria-invalid="true"]');
+		}
+	]
 };
 
 export default config;

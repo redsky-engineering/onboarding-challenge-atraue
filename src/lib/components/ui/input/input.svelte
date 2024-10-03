@@ -14,11 +14,10 @@
 	// Fixed in Svelte 5, but not backported to 4.x.
 	export let readonly: $$Props["readonly"] = undefined;
 
-	//"border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring flex h-10 w-full rounded-lg border px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
 </script>
 <input
 	class={cn(
-		"bg-background border rounded-lg px-3 py-1.5 placeholder:text-muted-foreground w-full text-base font-normal font-inter text-foreground disabled:cursor-not-allowed disabled:opacity-50 active:shadow-input focus:shadow-input focus:outline-none",
+		"bg-background border rounded-lg px-3 py-1.5 placeholder:text-muted-foreground w-full text-base font-normal font-inter text-foreground disabled:cursor-not-allowed disabled:opacity-50 active:shadow-input focus:shadow-input focus:outline-none aria-invalid:border-destructive",
 		className
 	)}
 	bind:value
