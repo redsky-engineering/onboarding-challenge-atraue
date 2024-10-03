@@ -20,7 +20,7 @@
 			>Introducing Our Dynamic Orders Dashboard for Seamless Management and<br/>Insightful Analysis.
 		</Card.Description>
 	</Card.Header>
-	<Card.Content>
+	<Card.Content class="py-0">
 		<ForecastToday class="mb-6" {currentTemp} {sunrise} {sunset} {pressure} {humidity} {wind} />
 		<ForecastTomorrow {highTemp} {lowTemp} />
 	</Card.Content>
