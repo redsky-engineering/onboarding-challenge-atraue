@@ -13,8 +13,8 @@
 </script>
 
 <div class={className}>
-	<h3 class="mb-4 font-inter text-lg font-medium text-card-foreground">Today's Forecast</h3>
-	<div class="grid grid-cols-[10rem_10rem_10rem]">
+	<h3 class="font-inter text-lg font-medium text-card-foreground mb-4">Today's Forecast</h3>
+	<div class="grid grid-cols-[repeat(3,10rem)] gap-x-2 gap-y-4">
 		<ForecastItem title="Current Temperature" value={currentTemp} unit="° F" />
 		<div></div>
 		<div></div>
