@@ -2,6 +2,15 @@
 	import * as Card from '$lib/components/ui/card';
 	import ForecastToday from './ForecastToday.svelte';
 	import ForecastTomorrow from './ForecastTomorrow.svelte';
+
+	export let currentTemp: number | null;
+	export let sunrise: string | null;
+	export let sunset: string | null;
+	export let pressure: number | null;
+	export let humidity: number | null;
+	export let wind: number | null;
+	export let highTemp: number | null;
+	export let lowTemp: number | null;
 </script>
 
 <Card.Root class="max-w-[45.5rem]">
@@ -12,7 +21,7 @@
 		</Card.Description>
 	</Card.Header>
 	<Card.Content>
-		<ForecastToday class="mb-6"/>
-		<ForecastTomorrow/>
+		<ForecastToday class="mb-6" {currentTemp} {sunrise} {sunset} {pressure} {humidity} {wind} />
+		<ForecastTomorrow {highTemp} {lowTemp} />
 	</Card.Content>
 </Card.Root>

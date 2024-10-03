@@ -6,12 +6,24 @@
 	import { defaults, superForm } from 'sveltekit-superforms';
 	import { locationSchema } from '../../../schema/location';
 	import { zod } from 'sveltekit-superforms/adapters';
+	import serviceFactory from '$lib/services/serviceFactory';
+	import { convertLatitudeToDecimal, convertLongitudeToDecimal } from './location-utils';
+	import { locationWeatherStore } from '../../../stores/locationWeather';
 
 	const form = superForm(defaults(zod(locationSchema)), {
 		SPA: true,
 		validators: zod(locationSchema),
-		onUpdate: ({ form }) => {
-			console.log(form);
+		onUpdate: async ({ form }) => {
+			if (form.valid){
+				const weatherService = serviceFactory.get('WeatherService');
+				const { latitude, longitude, appIdToken } = form.data;
+				const latDecimal = convertLatitudeToDecimal(latitude);
+				const longDecimal = convertLongitudeToDecimal(longitude);
+				const res = await weatherService.getWeatherForLocation(latDecimal, longDecimal, appIdToken);
+				if (res){
+					locationWeatherStore.set(res);
+				}
+			}
 		}
 	});
 	const { form: formData, errors, enhance } = form;
