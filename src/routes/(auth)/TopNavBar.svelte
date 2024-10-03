@@ -14,7 +14,7 @@
 </script>
 
 <div class="flex bg-muted-opacity shadow-navbar">
-	<div class="w-[50vw] p-4 desktop:w-full desktop:px-4 desktop:py-2.5">
+	<div class="flex items-center w-[50vw] p-4 desktop:w-full desktop:px-4 desktop:py-2.5">
 		<h1 class="font-inter text-xl font-semibold text-foreground desktop:text-3xl desktop:tracking-wide">{pageTitle}</h1>
 	</div>
 	<div class="border-l-1"></div>
