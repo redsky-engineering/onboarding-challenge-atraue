@@ -10,7 +10,7 @@
 
 <div
 	class={cn(
-		'flex flex-grow flex-col items-center justify-center gap-4 bg-muted-opacity p-4 desktop:flex-row',
+		'flex flex-grow flex-col items-center justify-center gap-4 bg-muted-opacity p-4',
 		className
 	)}
 >

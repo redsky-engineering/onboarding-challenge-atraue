@@ -27,7 +27,7 @@
 	});
 </script>
 
-<PageContent class="justify-start desktop:items-start">
+<PageContent class="justify-start desktop:flex-row desktop:items-start">
 	<LocationCard />
 	<ResultsCard {currentTemp} {highTemp} {lowTemp} {sunrise} {sunset} {pressure} {humidity} {wind} />
 </PageContent>
