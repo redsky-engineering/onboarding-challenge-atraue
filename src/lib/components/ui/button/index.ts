@@ -3,14 +3,16 @@ import type { Button as ButtonPrimitive } from 'bits-ui';
 import Root from './button.svelte';
 
 const buttonVariants = tv({
-	base: 'font-inter text-base font-semibold disabled:opacity-50 hover:opacity-90 focus:shadow-button',
+	base: 'font-inter text-base font-semibold disabled:opacity-50 focus:shadow-button',
 	variants: {
 		variant: {
-			default: 'bg-primary text-primary-foreground'
+			default: 'bg-primary text-primary-foreground',
+			outline: 'border-1 bg-background hover:bg-muted active:bg-muted'
 		},
 		size: {
-			default: 'px-4 py-1.5 rounded-lg'
-		}
+			default: 'px-4 py-1.5 rounded-lg',
+			sm: 'p-2.5 rounded-lg'
+		},
 	},
 	defaultVariants: {
 		variant: 'default',
