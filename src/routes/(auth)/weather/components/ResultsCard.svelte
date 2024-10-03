@@ -17,7 +17,7 @@
 	<Card.Header>
 		<Card.Title tag="h2">Results</Card.Title>
 		<Card.Description
-			>Introducing Our Dynamic Orders Dashboard for Seamless Management and Insightful Analytics
+			>Introducing Our Dynamic Orders Dashboard for Seamless Management and<br/>Insightful Analysis.
 		</Card.Description>
 	</Card.Header>
 	<Card.Content>
