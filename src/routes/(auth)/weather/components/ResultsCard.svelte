@@ -13,14 +13,14 @@
 	export let lowTemp: number | null;
 </script>
 
-<Card.Root class="max-w-[45.5rem]">
+<Card.Root class="w-[45.5rem]">
 	<Card.Header>
 		<Card.Title tag="h2">Results</Card.Title>
 		<Card.Description
 			>Introducing Our Dynamic Orders Dashboard for Seamless Management and<br/>Insightful Analysis.
 		</Card.Description>
 	</Card.Header>
-	<Card.Content class="py-0">
+	<Card.Content class="pt-0 pb-6">
 		<ForecastToday class="mb-6" {currentTemp} {sunrise} {sunset} {pressure} {humidity} {wind} />
 		<ForecastTomorrow {highTemp} {lowTemp} />
 	</Card.Content>
