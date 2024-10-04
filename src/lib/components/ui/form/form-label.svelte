@@ -12,6 +12,6 @@
 	const { labelAttrs } = getFormControl();
 </script>
 
-<Label {...$labelAttrs} class={cn("text-base font-medium text-foreground peer-disabled:cursor-not-allowed", className)} {...$$restProps}>
+<Label {...$labelAttrs} class={cn("text-base font-medium text-foreground tracking-wide peer-disabled:cursor-not-allowed", className)} {...$$restProps}>
 	<slot {labelAttrs} />
 </Label>
