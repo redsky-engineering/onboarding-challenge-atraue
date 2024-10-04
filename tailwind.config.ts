@@ -26,6 +26,11 @@ const config: Config = {
 				ring: 'var(--ring)',
 				background: 'var(--background)',
 				foreground: 'var(--foreground)',
+				error: {
+					DEFAULT: 'var(--error)',
+					foreground: 'var(--error-foreground)',
+					background: 'var(--error-background)'
+				},
 				primary: {
 					DEFAULT: 'var(--primary)',
 					foreground: 'var(--primary-foreground)'

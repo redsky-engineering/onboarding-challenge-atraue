@@ -10,15 +10,35 @@
 	import serviceFactory from '$lib/services/serviceFactory';
 	import { FormControl, FormField, FormFieldErrors, FormLabel } from '$lib/components/ui/form';
 	import { cn } from '$lib/utils';
+	import { HttpError } from '$lib/utils/HttpClient';
+	import Alert from '$lib/components/ui/alert/alert.svelte';
+	import { CircleAlert } from 'lucide-svelte';
+	import AlertTitle from '$lib/components/ui/alert/alert-title.svelte';
+
+	let errorMessage: string | null = null;
 
 	const form = superForm(defaults(zod(loginSchema)), {
 		SPA: true,
 		validators: zod(loginSchema),
-		onUpdate: async ({ form }) => {
+		onUpdate: async (event) => {
+			const { form } = event;
 			if (form.valid) {
 				const { email, password } = form.data;
 				const userService = serviceFactory.get('UserService');
-				await userService.loginUser(email, password);
+
+				try {
+					await userService.loginUser(email, password);
+				} catch (err) {
+					if (err instanceof HttpError) {
+						const { statusCode } = err;
+						if (statusCode === 401) {
+							errorMessage = 'Invalid email or password. Try again.';
+						} else {
+							errorMessage = 'An error occurred. Please try again later.';
+						}
+					}
+					event.cancel();
+				}
 			}
 		}
 	});
@@ -68,6 +88,11 @@
 				</FormField>
 				<Button class="w-full" type="submit">Login</Button>
 			</form>
+			{#if errorMessage !== null}
+				<Alert class="mt-6" variant="error"
+					><CircleAlert class="w-[0.875rem] h-[0.875rem] fill-error text-foreground" /><AlertTitle>{errorMessage}</AlertTitle></Alert
+				>
+			{/if}
 		</div>
 	</div>
 </div>
