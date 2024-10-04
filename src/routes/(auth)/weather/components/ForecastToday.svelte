@@ -14,7 +14,7 @@
 
 <div class={className}>
 	<h3 class="font-inter text-lg font-medium text-card-foreground mb-4">Today's Forecast</h3>
-	<div class="grid grid-cols-[repeat(3,10rem)] gap-x-2 gap-y-4">
+	<div class="grid grid-cols-[repeat(3,1fr)] desktop:grid-cols-[repeat(3,10rem)] gap-x-2 gap-y-4">
 		<ForecastItem title="Current Temperature" value={currentTemp} unit="° F" />
 		<div></div>
 		<div></div>
