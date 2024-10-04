@@ -16,7 +16,8 @@ const config: Config = {
 		extend: {
 			boxShadow: {
 				button: '0px 0px 0px 1px var(--ring)',
-				input: '0px 0px 0px 1px var(--ring)',
+				input: '0px 0px 0px 1px var(--border)',
+				interactiveInput: '0px 0px 0px 1px var(--ring)',
 				navbar: 'inset 0px -1px 0px 0px var(--border)'
 			},
 			colors: {
