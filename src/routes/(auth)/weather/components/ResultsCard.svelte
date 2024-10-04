@@ -13,7 +13,7 @@
 	export let lowTemp: number | null;
 </script>
 
-<Card.Root class="w-[45.5rem]">
+<Card.Root class="w-full max-w-[45.5rem]">
 	<Card.Header>
 		<Card.Title tag="h2">Results</Card.Title>
 		<Card.Description
