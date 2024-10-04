@@ -14,7 +14,7 @@
 
 <svelte:element
 	this={tag}
-	class={cn("font-inter font-medium text-2xl text-card-foreground mb-2", className)}
+	class={cn("font-inter font-medium text-2xl text-card-foreground mb-2 tracking-wide", className)}
 	{...$$restProps}
 >
 	<slot />
