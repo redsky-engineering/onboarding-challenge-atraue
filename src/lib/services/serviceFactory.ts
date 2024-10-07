@@ -1,19 +1,18 @@
 import UserService from './user/UserService';
+import WeatherService from './user/WeatherService';
 
 export type ServiceTypes = {
 	UserService: UserService;
+	WeatherService: WeatherService;
 };
 
 class ServiceFactory {
-	private serviceMap: ServiceTypes;
-
-	constructor() {
-		this.serviceMap = {} as ServiceTypes;
-	}
+	private serviceMap?: ServiceTypes;
 
 	init() {
 		this.serviceMap = {
-			UserService: new UserService()
+			UserService: new UserService(),
+			WeatherService: new WeatherService()
 		};
 
 		let key: keyof ServiceTypes;
@@ -22,7 +21,11 @@ class ServiceFactory {
 		}
 	}
 
-	get(key: keyof ServiceTypes) {
+	get<K extends keyof ServiceTypes>(key: K): ServiceTypes[K] {
+		if (!this.serviceMap) {
+			throw new Error('ServiceFactory not initialized');
+		}
+
 		return this.serviceMap[key];
 	}
 }
