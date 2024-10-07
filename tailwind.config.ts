@@ -16,7 +16,9 @@ const config: Config = {
 		extend: {
 			boxShadow: {
 				button: '0px 0px 0px 1px var(--ring)',
-				input: '0px 0px 0px 1px var(--ring)'
+				input: '0px 0px 0px 1px var(--border)',
+				interactiveInput: '0px 0px 0px 1px var(--ring)',
+				navbar: 'inset 0px -1px 0px 0px var(--border)'
 			},
 			colors: {
 				border: 'var(--border)',
@@ -24,6 +26,11 @@ const config: Config = {
 				ring: 'var(--ring)',
 				background: 'var(--background)',
 				foreground: 'var(--foreground)',
+				error: {
+					DEFAULT: 'var(--error)',
+					foreground: 'var(--error-foreground)',
+					background: 'var(--error-background)'
+				},
 				primary: {
 					DEFAULT: 'var(--primary)',
 					foreground: 'var(--primary-foreground)'
@@ -38,6 +45,7 @@ const config: Config = {
 				},
 				muted: {
 					DEFAULT: 'var(--muted)',
+					opacity: 'var(--muted-opacity-20)',
 					foreground: 'var(--muted-foreground)'
 				},
 				accent: {
@@ -46,6 +54,7 @@ const config: Config = {
 				},
 				popover: {
 					DEFAULT: 'var(--popover)',
+					opacity: 'var(--popover-foreground-opacity-20)',
 					foreground: 'var(--popover-foreground)'
 				},
 				card: {
@@ -66,12 +75,10 @@ const config: Config = {
 				desktop: '90rem'
 			},
 			width: {
-				mobile: '23.438rem',
-				desktop: '45rem'
+				mobile: '23.438rem'
 			},
-			maxWidth: {
-				mobile: '23.438rem',
-				desktop: '45rem'
+			borderWidth: {
+				1: '1px'
 			}
 		}
 	},
