@@ -23,6 +23,7 @@ export const load: LayoutLoad = async (event) => {
 		try {
 			const myUser = await ApiRequestV1.getUserMe();
 			userStore.set(myUser);
+			user = myUser;
 		} catch (e) {
 			console.error('failed to fetch user', e);
 		}
