@@ -1,8 +1,12 @@
 <script lang="ts">
-	export let name: string;
-	export let href: string;
-	export let icon: string | undefined;
-	export let isActive: boolean;
+	interface Props {
+		name: string;
+		href: string;
+		icon?: string;
+		isActive: boolean;
+	}
+
+	const { name, href, icon, isActive }: Props = $props();
 
 	const styledIcon = icon?.replace(
 		'<svg',

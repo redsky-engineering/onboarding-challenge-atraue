@@ -1,11 +1,13 @@
 <script lang="ts">
 	import ForecastItem from './ForecastItem.svelte';
 
-	export let highTemp: number | null;
-	export let lowTemp: number | null;
+	interface Props {
+		highTemp: number | null;
+		lowTemp: number | null;
+		class?: string;
+	}
 
-	let className: string | undefined = undefined;
-	export { className as class };
+	const { highTemp, lowTemp, class: className }: Props = $props();
 </script>
 
 <div class={className}>

@@ -8,15 +8,15 @@
 		icon?: string;
 	}
 
-	export let links: Link[];
+	interface Props {
+		links: Link[];
+	}
 
-    let currentUrl;
-
-    $: currentUrl = $page.url.href;
+	const { links }: Props = $props();
 </script>
 
 <ul class="flex flex-col gap-y-2 w-full">
 	{#each links as { name, href, icon }}
-		<NavItem {name} {href} {icon} isActive={currentUrl.endsWith(href)} />
+		<NavItem {name} {href} {icon} isActive={$page.url.href.endsWith(href)} />
 	{/each}
 </ul>
