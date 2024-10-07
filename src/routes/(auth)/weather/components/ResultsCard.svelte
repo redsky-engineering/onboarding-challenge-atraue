@@ -2,15 +2,19 @@
 	import * as Card from '$lib/components/ui/card';
 	import ForecastToday from './ForecastToday.svelte';
 	import ForecastTomorrow from './ForecastTomorrow.svelte';
+	
+	interface Props {
+		currentTemp: number | null;
+		sunrise: string | null;
+		sunset: string | null;
+		pressure: number | null;
+		humidity: number | null;
+		wind: number | null;
+		highTemp: number | null;
+		lowTemp: number | null;
+	}
 
-	export let currentTemp: number | null;
-	export let sunrise: string | null;
-	export let sunset: string | null;
-	export let pressure: number | null;
-	export let humidity: number | null;
-	export let wind: number | null;
-	export let highTemp: number | null;
-	export let lowTemp: number | null;
+	const { currentTemp, sunrise, sunset, pressure, humidity, wind, highTemp, lowTemp }: Props = $props();
 </script>
 
 <Card.Root class="w-full max-w-[45.5rem]">
