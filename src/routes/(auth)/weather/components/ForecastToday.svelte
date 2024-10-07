@@ -1,15 +1,17 @@
 <script lang="ts">
 	import ForecastItem from './ForecastItem.svelte';
 
-	export let currentTemp: number | null;
-	export let sunrise: string | null;
-	export let sunset: string | null;
-	export let pressure: number | null;
-	export let humidity: number | null;
-	export let wind: number | null;
+	interface Props {
+		currentTemp: number | null;
+		sunrise: string | null;
+		sunset: string | null;
+		pressure: number | null;
+		humidity: number | null;
+		wind: number | null;
+		class?: string;
+	}
 
-	let className: string | undefined = undefined;
-	export { className as class };
+	const { currentTemp, sunrise, sunset, pressure, humidity, wind, class: className }: Props = $props();
 </script>
 
 <div class={className}>

@@ -1,20 +1,30 @@
 <script lang="ts">
-	export let name: string;
-	export let href: string;
-	export let icon: string | undefined;
-	export let isActive: boolean;
+	import { cn } from "$lib/utils";
+
+	interface Props {
+		name: string;
+		href: string;
+		icon?: string;
+		isActive: boolean;
+	}
+
+	const { name, href, icon, isActive }: Props = $props();
 
 	const styledIcon = icon?.replace(
 		'<svg',
-		`<svg class="w-4 h-4 ${isActive ? 'fill-accent-foreground' : 'fill-muted-foreground'}"`
+		`<svg class="${cn('w-4 h-4 fill-muted-foreground', { 'fill-accent-foreground': isActive })}"`
 	);
 </script>
 
-<li class="rounded-lg p-2.5 {isActive ? 'bg-primary-foreground' : ''}">
+<li class={cn('rounded-lg p-2.5', { 'bg-primary-foreground': isActive })}>
 	<a class="flex items-center gap-x-2" {href}>
 		{#if icon}
 			{@html styledIcon}
 		{/if}
-		<span class="font-inter text-lg font-semibold {isActive ? "text-foreground" : "text-muted-foreground"}">{name}</span>
+		<span
+			class={cn('font-inter text-lg font-semibold text-muted-foreground', {
+				'text-foreground': isActive
+			})}>{name}</span
+		>
 	</a>
 </li>
